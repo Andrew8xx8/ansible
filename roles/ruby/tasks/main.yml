@@ -1,6 +1,9 @@
 ---
+- name: Add GPG key
+  shell: "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
+
 - name: install RVM
-  shell: "curl -sSL https://get.rvm.io | bash -s stable creates={{rvm_path}}"
+  shell: "curl -sSL https://get.rvm.io | bash -s stable creates={{rvm_path}}/bin/rvm"
 
 - name: install Ruby
   shell: "{{rvm_path}}/bin/rvm install --default {{ruby_version}} creates={{rvm_path}}/rubies/ruby-{{ruby_version}}"
